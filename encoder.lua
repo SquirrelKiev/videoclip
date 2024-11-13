@@ -75,14 +75,13 @@ this.mkargs_video = function(out_clip_path)
         '--vf-add=format=yuv420p',
         '--sub-font-provider=auto',
         '--embeddedfonts=yes',
-        table.concat { '--sub-font=', this.config.sub_font },
         table.concat { '--ovc=', this.config.video_codec },
         table.concat { '--oac=', this.config.audio_codec },
         table.concat { '--start=', toms(this.timings['start']) },
         table.concat { '--end=', toms(this.timings['end']) },
         table.concat { '--aid=', mp.get_property("aid") }, -- track number
         table.concat { '--mute=', mp.get_property("mute") },
-        table.concat { '--volume=', mp.get_property('volume') },
+        -- table.concat { '--volume=', mp.get_property('volume') },
         table.concat { '--ovcopts-add=b=', this.config.video_bitrate },
         table.concat { '--oacopts-add=b=', this.config.audio_bitrate },
         table.concat { '--ovcopts-add=crf=', this.config.video_quality },
@@ -95,7 +94,17 @@ this.mkargs_video = function(out_clip_path)
         table.concat { '--sub-delay=', mp.get_property("sub-delay") },
         table.concat { '--sub-visibility=', mp.get_property("sub-visibility") },
         table.concat { '--secondary-sub-visibility=', mp.get_property("secondary-sub-visibility") },
-        table.concat { '--sub-back-color=', mp.get_property("sub-back-color") }
+        table.concat { '--sub-back-color=', mp.get_property("sub-back-color") },
+        table.concat { '--sub-font=', mp.get_property("sub-font") },
+        table.concat { '--sub-font-size=', mp.get_property("sub-font-size") },
+        table.concat { '--sub-color=', mp.get_property("sub-color") },
+        table.concat { '--sub-border-color=', mp.get_property("sub-border-color") },
+        table.concat { '--sub-shadow-color=', mp.get_property("sub-shadow-color") },
+        table.concat { '--sub-border-size=', mp.get_property("sub-border-size") },
+        table.concat { '--sub-shadow-offset=', mp.get_property("sub-shadow-offset") },
+        table.concat { '--sub-bold=', mp.get_property("sub-bold") },
+        table.concat { '--sub-margin-x=', mp.get_property("sub-margin-x") },
+        table.concat { '--sub-margin-y=', mp.get_property("sub-margin-y") },     
     }
 
     if this.config.video_fps ~= 'auto' then

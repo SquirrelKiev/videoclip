@@ -59,7 +59,6 @@ local config = {
     litterbox = true,
     -- Determines expire time of files uploaded to litterbox
     litterbox_expire = '72h', -- 1h, 12h, 24h, 72h
-    sub_font = 'Noto Sans CJK JP',
 }
 
 mpopt.read_options(config, NAME)
